@@ -6,7 +6,11 @@ import data from "./data/data.js";
 const app = express();
 
 app.use(express.json());
-
+(async () => {
+  const browser = await puppeteer.launch({ headless: "new" });
+  const page = await browser.newPage();
+  // Your Puppeteer code here
+})();
 const raySoConfig = (params) => ({
     title: "Random Quotes for Programmer",
     theme: params.theme,
